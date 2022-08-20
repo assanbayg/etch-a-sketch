@@ -26,7 +26,7 @@ let colorInput = document.querySelector('.color');
 let color = colorInput.value;
 let numberInput = document.querySelector('.number');
 let number = numberInput.value;
-number.onchange = (e) => create();
+numberInput.onchange = (e) => create();
 const container = document.querySelector('.container');
 
 const size = 500 / number;
