@@ -1,5 +1,8 @@
 function create(){
     clear();
+    number = numberInput.value;
+    size = 500 / number;
+    console.log(size);
     for(let i = 0; i < number ** 2; ++i){
         let span = document.createElement('span');
         span.style.cssText = `background-color: white; width: ${size}px; height: ${size}px;`;
@@ -29,6 +32,6 @@ let number = numberInput.value;
 numberInput.onchange = (e) => create();
 const container = document.querySelector('.container');
 
-const size = 500 / number;
+let size = 500 / number;
 
 button.addEventListener('click', (e) => create());
