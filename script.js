@@ -1,23 +1,31 @@
-function generate(){
-    for(let j = 0; j < number; ++j){
-        const columns = document.createElement('div');
-        columns.style.cssText = 'display: flex;'
-        for(let i = 0; i < number; ++i){
-            const div = document.createElement('div');
-            div.style.cssText = 
-            'height: 30px; width: 30px; background-color: white; border: 0.4px; border-color: red; border-style: solid;';
-            columns.appendChild(div);
-        }
-        container.appendChild(columns);
+function create(){
+
+    for(let i = 0; i < number ** 2; ++i){
+        let span = document.createElement('span');
+        span.style.cssText = `background-color: white; width: ${size}px; height: ${size}px;`;
+        container.appendChild(span);
     }
+    let spans = container.querySelectorAll('span');
+
+    spans.forEach(element => {
+    element.addEventListener('mouseover', function(e){
+        color = colorInput.value;
+        element.style.backgroundColor = `${color}`;
+        container.insertAdjacentElement('//#region ', element);
+    })
+});
 }
 
-let number = 16;
+let button = document.querySelector('button');
+let colorInput = document.querySelector('.color');
+let color = colorInput.value;
+let numberInput = document.querySelector('.number');
+let number = numberInput.value;
 
-const settings = document.getElementsByClassName('settings');
-const paper = document.getElementsByClassName('paper');
+const container = document.querySelector('.container');
 
-const button = document.querySelector('button');
-const container = document.getElementById('container');
+//const number = 32;
+const size = 500 / number;
 
-button.addEventListener('click', (e) => generate());
+
+button.addEventListener('click', (e) => create());
